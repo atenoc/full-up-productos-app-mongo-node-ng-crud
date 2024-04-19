@@ -1,0 +1,11 @@
+1. Iniciar Mongo en consola y no cerrar ejecución
+
+mongod
+
+2. Iniciar Servidor Node JS
+
+npm run dev
+
+3. Iniciar servidor Angular
+
+ng serve

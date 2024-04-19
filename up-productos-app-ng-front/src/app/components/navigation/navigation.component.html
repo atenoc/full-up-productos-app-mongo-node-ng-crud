@@ -1,0 +1,66 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+  <div class="container">
+
+      <a class="navbar-brand" routerLink="/">Mi Negocio Digital
+
+        <img src="https://image.freepik.com/vector-gratis/tienda-dibujos-animados-compras_18591-42797.jpg"  class="rounded-circle" 
+        alt="" height="30px">
+      
+      </a>
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" 
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+
+        <div *ngIf="user; else showProductos">
+          <li class="nav-item" routerLinkActive="active">
+            <a class="nav-link" routerLink="/productos">Mis Productos</a>
+          </li>
+        </div>
+
+        <ng-template #showProductos>
+          <li class="nav-item" routerLinkActive="active">
+            <a class="nav-link" routerLink="/productos">Productos</a>
+          </li>
+        </ng-template>
+
+        <div *ngIf="user; else showTiendas">
+          <li class="nav-item" routerLinkActive="active">
+            <a class="nav-link" routerLink="/tiendas">Mi Tienda</a>
+          </li>
+        </div>
+        
+        <ng-template #showTiendas>
+          <li class="nav-item" routerLinkActive="active">
+            <a class="nav-link" routerLink="/tiendas">Tiendas</a>
+          </li>
+        </ng-template>
+
+        <li class="nav-item">
+          <a class="nav-link disabled" routerLink="/usuarios">Usuarios</a>
+        </li>
+      </ul>
+      <!-- <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form> -->
+    </div>
+
+    <div *ngIf="user">
+      <!-- <img [src]="user.photoURL" class="rounded-circle" alt="" height="35px">  -->
+      <label style="color:#c6c6c6; margin-left: 10px;"> {{ nombreEmail }} </label>
+
+      <button class="btn btn-outline-warning my-2 my-sm-0" type="submit" (click)="logout()" style="margin-left: 10px;">Cerrar Sesión</button>
+    </div>
+    <div *ngIf="!user">
+      <button class="btn btn-outline-success my-2 my-sm-0" routerLink="/login">Iniciar Sesión</button>
+    </div>
+
+  </div>
+
+</nav>

@@ -1,0 +1,14 @@
+[{
+  "_id": {
+    "$oid": "602ec66399e31f2a986db670"
+  },
+  "nombre": "sdfasf",
+  "categoria": "categoria",
+  "descripcion": "dessdfsdf",
+  "imagenPath": "uploads\\a718df35-ce4a-4e63-81ef-feb2d056b01a.jpg",
+  "precio": 52,
+  "disponible": true,
+  "tienda_id": "",
+  "usuario_id": "DZx4ZdBHzscRs5rDJN8Is7v1mYj1",
+  "__v": 0
+}]

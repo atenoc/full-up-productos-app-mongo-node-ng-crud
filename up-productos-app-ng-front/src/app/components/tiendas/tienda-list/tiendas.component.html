@@ -1,0 +1,55 @@
+<div *ngIf="user; else showLogin">
+
+    <div class="container mt-3">
+
+        <div *ngIf="agregarRender">
+            
+            <small class="form-text text-muted">Agrega los datos de tu tienda, negocio o local, para que tus clientes te conozcan</small>
+            <button class="btn btn-outline-primary mt-3" routerLink="/tienda-form">Agregar Tienda</button>
+            
+        </div>
+
+    </div>
+</div>
+
+<ng-template #showLogin>
+  <div *ngIf="cargando" class="text-center">
+    <div class="lds-ellipsis"><div></div><div></div><div></div><div></div></div>
+  </div>
+</ng-template>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-4 p-4" *ngFor="let tienda of tiendas?.reverse()">
+            <div class="card card-photo" (click)="selectedCard(tienda._id)">
+                <div class="card-header">
+                    <strong>{{tienda.nombre}}</strong> 
+                    <p>id_Tienda: {{tienda._id}}</p> 
+                    <p>id_Usuario: {{tienda.usuario_id}}</p> 
+                </div>
+                <img [src]="'http://localhost:4000/' + tienda.imagenPath" class="img-card-top w-100">
+                <div class="card-body" style="background-color: #daf5ff;">
+
+                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-info-circle-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM8 5.5a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
+                      </svg>
+
+                    <p>{{tienda.descripcion}}</p>
+                    
+                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-telephone-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M2.267.98a1.636 1.636 0 0 1 2.448.152l1.681 2.162c.309.396.418.913.296 1.4l-.513 2.053a.636.636 0 0 0 .167.604L8.65 9.654a.636.636 0 0 0 .604.167l2.052-.513a1.636 1.636 0 0 1 1.401.296l2.162 1.681c.777.604.849 1.753.153 2.448l-.97.97c-.693.693-1.73.998-2.697.658a17.47 17.47 0 0 1-6.571-4.144A17.47 17.47 0 0 1 .639 4.646c-.34-.967-.035-2.004.658-2.698l.97-.969z"/>
+                    </svg>
+                    
+                    <p>{{tienda.telefono}}</p>
+
+                    <svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-geo-fill" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" d="M4 4a4 4 0 1 1 4.5 3.969V13.5a.5.5 0 0 1-1 0V7.97A4 4 0 0 1 4 3.999zm2.493 8.574a.5.5 0 0 1-.411.575c-.712.118-1.28.295-1.655.493a1.319 1.319 0 0 0-.37.265.301.301 0 0 0-.057.09V14l.002.008a.147.147 0 0 0 .016.033.617.617 0 0 0 .145.15c.165.13.435.27.813.395.751.25 1.82.414 3.024.414s2.273-.163 3.024-.414c.378-.126.648-.265.813-.395a.619.619 0 0 0 .146-.15.148.148 0 0 0 .015-.033L12 14v-.004a.301.301 0 0 0-.057-.09 1.318 1.318 0 0 0-.37-.264c-.376-.198-.943-.375-1.655-.493a.5.5 0 1 1 .164-.986c.77.127 1.452.328 1.957.594C12.5 13 13 13.4 13 14c0 .426-.26.752-.544.977-.29.228-.68.413-1.116.558-.878.293-2.059.465-3.34.465-1.281 0-2.462-.172-3.34-.465-.436-.145-.826-.33-1.116-.558C3.26 14.752 3 14.426 3 14c0-.599.5-1 .961-1.243.505-.266 1.187-.467 1.957-.594a.5.5 0 0 1 .575.411z"/>
+                      </svg>
+
+                    <p>{{tienda.direccion}}</p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,41 @@
+<div class="col-lg-4 mx-auto mt-3">
+
+    <div class="card">
+        <div class="card-header">Negocio | Tienda | Local</div>
+        <div class="card-body">
+
+            <form (submit)="crearTienda(nombre, descripcion, telefono, direccion)">
+                <div class="form-group">
+                    <small class="form-text text-muted">Escribe el nombre de tu negocio</small>
+                    <input type="text" class="form-control" placeholder="Nombre" required #nombre>
+                </div>
+                <div class="form-group">
+                    <small class="form-text text-muted">Describe el giro de tu negocio</small>
+                    <textarea  rows="3" class="form-control" placeholder="Descripción" required #descripcion></textarea>
+                </div>
+                <div class="form-group">
+                    <small class="form-text text-muted">Agrega un número de teléfono </small>
+                    <input type="text" class="form-control" placeholder="Teléfono" required #telefono>
+                </div>
+                <div class="form-group">
+                    <small class="form-text text-muted">Ingresa la dirección de tu negocio</small>
+                    <textarea  rows="3" class="form-control" placeholder="Dirección" required #direccion></textarea>
+                </div>
+                <div class="form-group">
+                    <small class="form-text text-muted">Agrega una foto del logotipo de tu negocio</small>
+                    <input type="file" class="d-none" #fotoInput (change)="fotoSeleccionada($event)">
+                    <img [src]="photoSelected || 'assets/images/no-image.png'" (click)="fotoInput.click()" class="img-fluid">
+                </div>
+
+                <div class="form-group">
+                    <small class="form-text text-muted">* Podrás actualizar la información cuando lo requieras</small>
+                </div>
+
+                <button class="btn btn-primary btn-block">Guardar</button>
+
+            </form>
+
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,36 @@
+<div class="col-lg-4 mx-auto">
+
+    <div class="card">
+        <div class="card-header">Nuevo Producto</div>
+        <div class="card-body">
+
+            <form (submit)="subirFoto(nombre, categoria, descripcion, precio)">
+                <div class="form-group">
+                    <small class="form-text text-muted">Nombre del producto </small>
+                    <input type="text" class="form-control" placeholder="Nombre" required #nombre>
+                </div>
+                <div class="form-group">
+                    <small class="form-text text-muted">Categoria (Ropa, comida, etc) </small>
+                    <input type="text" class="form-control" placeholder="Categoria" required #categoria>
+                </div>
+                <div class="form-group">
+                    <small class="form-text text-muted">Descripción </small>
+                    <textarea  rows="3" class="form-control" placeholder="Descripción" required #descripcion></textarea>
+                </div>
+                <div class="form-group">
+                    <small class="form-text text-muted">Precio </small>
+                    <input type="text" class="form-control" placeholder="Precio" required #precio>
+                </div>
+                <div class="form-group">
+                    <input type="file" class="d-none" #fotoInput (change)="fotoSeleccionada($event)">
+                    <img [src]="photoSelected || 'assets/images/no-image.png'" (click)="fotoInput.click()" class="img-fluid">
+                </div>
+
+                <button class="btn btn-primary btn-block">Guardar Producto</button>
+
+            </form>
+
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,38 @@
+
+<div class="row" *ngIf="!tienda; else main_content">
+    <h1>Loading...</h1>
+</div>
+<ng-template #main_content>
+    <div class="row">
+        <div class="col-md-5">
+            <div class="card">
+                <img [src]="'http://localhost:4000/' + tienda.imagenPath" class="img-card-top w-100">
+            </div>
+        </div>
+        <div class="col-md-7">
+            <div class="card">
+                <form class="card-body" (submit)="updateTienda(nombre, descripcion, telefono, direccion)">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Nombre" [value]="tienda.nombre" #nombre>
+                    </div>
+                    <div class="form-group">
+                        <textarea rows="2" class="form-control" placeholder="Descripción" [value]="tienda.descripcion" #descripcion></textarea>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Teléfono" [value]="tienda.telefono" #telefono>
+                    </div>
+                    <div class="form-group">
+                        <textarea rows="2" class="form-control" placeholder="Dirección" [value]="tienda.direccion" #direccion></textarea>
+                    </div>
+                    <button class="btn btn-primary btn-block">
+                        Actualizar 
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <button class="btn btn-danger m-3" (click)="deleteTienda(tienda._id)">Eliminar</button>
+
+</ng-template>
+
